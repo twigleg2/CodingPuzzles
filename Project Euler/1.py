@@ -2,8 +2,8 @@
 
 # Find the sum of all the multiples of 3 or 5 below 1000.
 MAX = 1000
-answer = 0
+sum = 0
 for n in range(MAX):
-    answer += n if n % 5 == 0 or n%3 == 0 else 0
+    sum += n if n % 5 == 0 or n%3 == 0 else 0
 
-print("The answer is: ", answer)
+print("The answer is: ", sum)
