@@ -7,7 +7,7 @@ import math
 targetPrime = 10_001
 
 def isPrime(num):
-    for r in range(2, math.ceil(math.sqrt(num)) + 1):
+    for r in range(2, math.floor(math.sqrt(num)) + 1):
         if num % r == 0:
             return False
     
