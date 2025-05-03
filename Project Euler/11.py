@@ -24,10 +24,10 @@ for r in range(numRows):
             for k in range(ADJ_LEN): # TODO: check out of bounds
                 try:
                     prod *= grid[r + dir[1]*k][c + dir[0]*k]
-                    if prod > largestProduct:
-                        largestProduct = prod
                 except:
                     pass
+            if prod > largestProduct:
+                largestProduct = prod
 
 
 print("The answer is: ", largestProduct)
