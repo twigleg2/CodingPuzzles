@@ -11,3 +11,12 @@ def isPrime(num):
         if num % r == 0:
             return False
     return True
+
+
+def extractDigits(num):
+    digits = []
+    while num > 0:
+        digits.append(num % 10)
+        num //= 10
+    digits.reverse()
+    return digits
