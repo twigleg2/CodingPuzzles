@@ -1,18 +1,10 @@
 # By listing the first six prime numbers: 2,3,5,7,11,13, we can see that the 6th prime is 13.
 # what is the 10,001st prime number?
 
-import math
+from utils import isPrime
 
 # targetPrime = 6
 targetPrime = 10_001
-
-def isPrime(num):
-    for r in range(2, math.floor(math.sqrt(num)) + 1):
-        if num % r == 0:
-            return False
-    
-    return True
-
 
 primes = [2]
 # primes = [2,3,5,7,11,13]
