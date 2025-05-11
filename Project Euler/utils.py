@@ -32,3 +32,10 @@ def reconstructFromDigits(digits):
     for i in range(len(digits)):
         number += digits[i] * 10**i
     return number
+
+def isPalindromicNumber(num):
+    digits = extractDigits(num)
+    for r in range(len(digits)):
+        if digits[r] != digits[-r-1]:
+            return False
+    return True
