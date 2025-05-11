@@ -12,6 +12,13 @@ def isPrime(num):
             return False
     return True
 
+def generatePrimesUnder(max):
+    primes = []
+    for n in range(max):
+        if isPrime(n):
+            primes.append(n)
+    return primes
+
 
 def extractDigits(num):
     digits = []
@@ -19,3 +26,9 @@ def extractDigits(num):
         digits.append(num % 10)
         num //= 10
     return digits
+
+def reconstructFromDigits(digits):
+    number = 0
+    for i in range(len(digits)):
+        number += digits[i] * 10**i
+    return number
