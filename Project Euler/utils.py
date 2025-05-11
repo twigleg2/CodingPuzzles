@@ -19,6 +19,12 @@ def generatePrimesUnder(max):
             primes.append(n)
     return primes
 
+def generateNextPrime(number):
+    while True:
+        number += 1
+        if isPrime(number):
+            return number
+
 
 def extractDigits(num):
     digits = []
