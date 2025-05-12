@@ -31,7 +31,6 @@ def generateNextPrime(number):
         if isPrime(number):
             return number
 
-
 def extractDigits(num):
     digits = []
     while num > 0:
@@ -54,3 +53,6 @@ def isPalindromicNumber(num):
 
 def nthTriangleNumber(n):
     return 0.5 * n * (n+1)
+
+def wordValue(word):
+    return sum([charToAlphabetValue[char] for char in word])
