@@ -85,3 +85,15 @@ def isHexagonalNumber(num):
 
 def wordValue(word):
     return sum([charToAlphabetValue[char] for char in word])
+
+def nChooseR(n, r): # AI generated
+    """Calculate n choose r (nCr) using a more efficient method."""
+    if r > n:
+        return 0
+    if r == 0 or r == n:
+        return 1
+    r = min(r, n - r)  # Take advantage of symmetry
+    c = 1
+    for i in range(r):
+        c = c * (n - i) // (i + 1)
+    return c
