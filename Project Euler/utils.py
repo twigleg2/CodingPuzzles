@@ -86,7 +86,7 @@ def isHexagonalNumber(num):
 def wordValue(word):
     return sum([charToAlphabetValue[char] for char in word])
 
-def nChooseR(n, r): # AI generated
+def nCr(n, r): # AI generated
     """Calculate n choose r (nCr) using a more efficient method."""
     if r > n:
         return 0
