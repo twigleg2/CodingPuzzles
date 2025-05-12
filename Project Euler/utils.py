@@ -54,5 +54,9 @@ def isPalindromicNumber(num):
 def nthTriangleNumber(n):
     return 0.5 * n * (n+1)
 
+def isTriangleNumber(num):
+    n = (math.sqrt(8 * num + 1) - 1) / 2
+    return n == int(n)
+
 def wordValue(word):
     return sum([charToAlphabetValue[char] for char in word])
