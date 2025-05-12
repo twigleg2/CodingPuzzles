@@ -52,7 +52,7 @@ def isPalindromicNumber(num):
     return True
 
 def nthTriangleNumber(n):
-    return 0.5 * n * (n+1)
+    return n*(n+1) // 2
 
 def isTriangleNumber(num):
     n = (math.sqrt(8 * num + 1) - 1) / 2
@@ -63,6 +63,13 @@ def nthPentagonalNumber(n):
 
 def isPentagonalNumber(num):
     n = (math.sqrt(24 * num + 1) + 1) / 6
+    return n == int(n)
+
+def nthHexagonalNumber(n):
+    return n*(2*n - 1)
+
+def isHexagonalNumber(num):
+    n = (math.sqrt(8 * num + 1) + 1) / 4
     return n == int(n)
 
 def wordValue(word):
