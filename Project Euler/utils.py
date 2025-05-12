@@ -58,5 +58,12 @@ def isTriangleNumber(num):
     n = (math.sqrt(8 * num + 1) - 1) / 2
     return n == int(n)
 
+def nthPentagonalNumber(n):
+    return (3 * n**2 - n) // 2
+
+def isPentagonalNumber(num):
+    n = (math.sqrt(24 * num + 1) + 1) / 6
+    return n == int(n)
+
 def wordValue(word):
     return sum([charToAlphabetValue[char] for char in word])
