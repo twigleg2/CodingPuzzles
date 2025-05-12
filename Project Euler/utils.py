@@ -55,6 +55,11 @@ def reconstructFromDigits(digits):
         number += digits[i] * 10**i
     return number
 
+def reverseNumber(num):
+    digits = extractDigits(num)
+    digits.reverse()
+    return reconstructFromDigits(digits)
+
 def isPalindromicNumber(num):
     digits = extractDigits(num)
     for r in range(len(digits)):
