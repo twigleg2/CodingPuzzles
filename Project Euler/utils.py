@@ -30,6 +30,17 @@ def generateNextPrime(number):
         number += 1
         if isPrime(number):
             return number
+        
+def primeFactorsOf(num):
+    factors = []
+    for r in range(2, math.floor(math.sqrt(num)) + 1):
+        if num % r == 0:
+            factors.append(r)
+            while num % r == 0:
+                num //= r
+    if num > 1:
+        factors.append(num)
+    return factors
 
 def extractDigits(num):
     digits = []
