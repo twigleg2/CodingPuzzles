@@ -77,9 +77,11 @@ def reconstructFromDigits(digits):
     return number
 
 def reverseNumber(num):
-    digits = extractDigits(num)
-    digits.reverse()
-    return reconstructFromDigits(digits)
+    reversedNum = 0
+    while num > 0:
+        reversedNum = reversedNum * 10 + num % 10
+        num //= 10
+    return reversedNum
 
 def isPalindromicNumber(num):
     digits = extractDigits(num)
