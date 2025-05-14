@@ -1,5 +1,8 @@
 import math
 
+# All methods were originally written by me unless otherwise noted.
+# Some methods have been enhanced with the help of GitHub Copilot.
+
 # charToAlphabetValue = {chr(i): i - 64 for i in range(65, 91)}  # A=1, B=2, ..., Z=26
 upperCharToAlphabetValue = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
 # charToAlphabetValue = {chr(i): i - 96 for i in range(97, 123)}  # a=1, b=2, ..., z=26
@@ -13,16 +16,30 @@ def isPrime(num):
     if num < 2:
         return False
     
-    for r in range(2, math.floor(math.sqrt(num)) + 1):
+    for r in range(2, int(math.sqrt(num)) + 1):
         if num % r == 0:
             return False
     return True
 
+# My original implementation of this method was very slow.  
+# When I asked GitHub Copilot to help optimize it, it taught me about the Sieve of Eratosthenes
 def generatePrimesUnder(max):
-    primes = []
-    for n in range(max):
-        if isPrime(n):
-            primes.append(n)
+    """Generate all prime numbers less than max using the Sieve of Eratosthenes."""
+    if max < 2:
+        return []
+    
+    # Create a boolean array where True indicates a prime number
+    is_prime = [True] * max
+    is_prime[0] = is_prime[1] = False  # 0 and 1 are not prime numbers
+
+    for i in range(2, int(math.sqrt(max)) + 1):
+        if is_prime[i]:
+            # Mark multiples of i as non-prime
+            for multiple in range(i * i, max, i):
+                is_prime[multiple] = False
+
+    # Extract prime numbers from the boolean array
+    primes = [num for num, prime in enumerate(is_prime) if prime]
     return primes
 
 def generateNextPrime(number):
@@ -33,7 +50,7 @@ def generateNextPrime(number):
         
 def primeFactorsOf(num):
     factors = []
-    for r in range(2, math.floor(math.sqrt(num)) + 1):
+    for r in range(2, int(math.sqrt(num)) + 1):
         if num % r == 0:
             factors.append(r)
             while num % r == 0:
