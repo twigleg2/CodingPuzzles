@@ -2,36 +2,25 @@
 
 from utils import extractDigits
 
-MAX = 987654321
-digits = extractDigits(MAX)
+digitsSet = set(extractDigits(987654321))
+MAX_DIGITS = len(digitsSet)
 
 products = {0}
 
-def containsDuplicates(list):
-    return len(list) != len(set(list))
 
-
-numbersToDigits = {}
-
-def getDigits(num):
-    d = numbersToDigits.get(num)
-    if d:
-        return d
-    numbersToDigits[num] = extractDigits(num)
-    return numbersToDigits.get(num)
-
-
-for n in range(39, int(MAX**0.5)):
-    nDigits = getDigits(n)
+for n in range(2, 100): # n must be smaller than m, so limit n to 2 digit numbers
+    nDigits = extractDigits(n)
     if 0 in nDigits:
         continue
-    for m in range(n+1, MAX):
-        product = n * m
-        usedDigits = nDigits + getDigits(m) + getDigits(product)
-        if 0 in usedDigits:
+    for m in range(n+1, 10000 // n): # m will be at most 4 digits, reduced as n grows larger
+        mDigits = extractDigits(m)
+        if 0 in mDigits or len(nDigits) + len(mDigits) >= MAX_DIGITS:
             continue
-        if len(usedDigits) == 9 and not containsDuplicates(usedDigits):
-            print(f"{n} x {m} = {product}")
+        product = n * m
+        productDigits = extractDigits(product)
+        if 0 in productDigits or len(nDigits) + len(mDigits) + len(productDigits) != MAX_DIGITS:
+            continue
+        if set(nDigits + mDigits + productDigits) == digitsSet:
             products.add(product)
 
 
