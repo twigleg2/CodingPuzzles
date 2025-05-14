@@ -42,6 +42,8 @@ def primeFactorsOf(num):
         factors.append(num)
     return factors
 
+# this returns a list of the digits in the given number in reverse order
+# for example, 1234 returns [4,3,2,1]
 def extractDigits(num):
     digits = []
     while num > 0:
@@ -49,6 +51,8 @@ def extractDigits(num):
         num //= 10
     return digits
 
+# this accepts a list of digits in reverse order and reconstructs the number
+# for example, [4,3,2,1] returns 1234
 def reconstructFromDigits(digits):
     number = 0
     for i in range(len(digits)):
